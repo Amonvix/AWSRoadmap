@@ -1,52 +1,68 @@
-# 🧠 AWS Learning Roadmap (Resumo Profissional)
+# 🧠 AWS Learning Roadmap
 
-## Conforme o progresso, os itens serão atualizados ou modificados para aninhar o app criado para teste de conhecimento
-
-## 🟩 Etapa 1: Essenciais
-
-> 🔥 Aprenda isso primeiro — é a base de tudo na AWS
-> 
-- [ ]  **IAM** – Controle de acesso (usuários, grupos, roles, policies)
-- [ ]  **VPC** – Rede virtual (subnets, CIDR blocks, route tables, gateways)
-- [ ]  **EC2** – Máquinas virtuais (tipos, key pairs, Elastic IP)
-- [ ]  **S3** – Armazenamento de objetos (tipos, buckets, lifecycle)
-- [ ]  **CloudWatch** – Logs, métricas, alarmes
-- [ ]  **Route53** – DNS, domínios, health checks
-- [ ]  **ElastiCache** – Redis/Memcached gerenciado
-- [ ]  **SES** – Envio de e-mails (verificação, DKIM, reputação)
+> Um repositório vivo com foco em **aprender AWS na prática**, através de experimentos, projetos pequenos e documentação progressiva por módulo.  
+> Conforme os serviços forem sendo explorados, exemplos e mini-projetos serão adicionados.
 
 ---
 
-## 🟨 Etapa 2: Intermediários
+## 🎯 Objetivo
 
-> 🌱 Quando entender os essenciais, suba o nível
-> 
-- [ ]  **DynamoDB** – NoSQL (chaves, índices, streams, backup/restore)
-- [ ]  **ECS** – Containers (task definitions, clusters, autoscaling)
-- [ ]  **RDS** – SQL gerenciado (MySQL, PostgreSQL, Oracle, etc.)
-
----
-
-## 🟧 Etapa 3: Avançados
-
-> 🚀 Hora de escalar, otimizar e deixar robusto
-> 
-- [ ]  **CloudFront** – CDN para distribuição global
-- [ ]  **Auto Scaling** – Escalabilidade automática
-- [ ]  **Elastic Load Balancer (ELB)** – Balanceamento de carga
-- [ ]  **Launch Templates** – Templates de instância otimizados
-- [ ]  **User Data Scripts** – Scripts na inicialização
-- [ ]  **AMIs** – Imagens customizadas de EC2
+Este repositório tem como meta centralizar o progresso de aprendizado na AWS com foco em:
+- Mão na massa com serviços reais
+- Baixo custo (usando Free Tier e boas práticas)
+- Registro de aprendizado com comparativos (ex: GCP vs AWS)
+- Preparação prática para ambientes de produção
 
 ---
 
-## 🟦 Etapa 4: Serverless e Microserviços
+## 🗺️ Roadmap por Etapas
 
-> 🧬 Sem servidor, com poder
-> 
-- [ ]  **Lambda** – Funções sem servidor (eventos, camadas, versões)
-- [ ]  **ECS Fargate** – Containers serverless
-- [ ]  **EKS** – Kubernetes gerenciado
-- [ ]  **EventBridge** – Eventos e agendamentos
-- [ ]  **API Gateway + Lambda@Edge** – APIs performáticas
-- [ ]  **Layers** – Compartilhamento de código entre Lambdas
+### 🟩 Etapa 1: Essenciais  
+🔥 Aprenda isso primeiro — base de tudo na AWS
+
+- ✅ IAM – Gerenciamento de acesso (usuários, groups, roles, policies)
+- ✅ VPC – Rede virtual (subnets, CIDR, gateways, NAT, route tables)
+- ✅ EC2 – Instâncias de computação (t2.micro, keypairs, scripts)
+- ✅ S3 – Armazenamento de objetos (buckets, lifecycle, versionamento)
+- ✅ CloudWatch – Logs, métricas e alarmes
+- ✅ Route53 – DNS, zonas públicas/privadas, health checks
+- 🔄 ElastiCache – Redis/Memcached
+- 🔄 SES – Envio de e-mails (verificação, DKIM, reputação)
+
+---
+
+### 🟨 Etapa 2: Intermediários  
+🌱 Evolua integrando serviços
+
+- ✅ DynamoDB – NoSQL (chaves, índices, streams, backup/restore)
+- ✅ ECS – Orquestração de containers com Fargate
+- ✅ RDS – Banco de dados relacional gerenciado
+
+---
+
+### 🟧 Etapa 3: Avançados  
+🚀 Escalabilidade, otimização e alta disponibilidade
+
+- 🔄 CloudFront – CDN para conteúdo global
+- 🔄 Auto Scaling – Escalabilidade automática de instâncias
+- 🔄 Elastic Load Balancer (ELB) – Balanceamento de carga
+- 🔄 Launch Templates – Inicialização de instâncias otimizadas
+- 🔄 User Data Scripts – Automatização na criação de instâncias
+- 🔄 AMIs – Imagens customizadas de EC2
+
+---
+
+### 🟦 Etapa 4: Serverless e Microserviços  
+🧬 Arquiteturas modernas e sem servidor
+
+- ✅ Lambda – Funções event-driven
+- ✅ ECS Fargate – Containers sem gerenciamento de servidor
+- 🔄 EKS – Kubernetes gerenciado
+- 🔄 EventBridge – Eventos e agendamento
+- 🔄 API Gateway + Lambda@Edge – APIs performáticas
+- 🔄 Layers – Compartilhamento de código entre Lambdas
+
+---
+
+## 📁 Estrutura do Repositório
+
