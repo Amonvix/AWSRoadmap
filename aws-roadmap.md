@@ -23,9 +23,9 @@ Este repositório tem como meta centralizar o progresso de aprendizado na AWS co
 - ✅ IAM – Gerenciamento de acesso (usuários, groups, roles, policies)
 - ✅ VPC – Rede virtual (subnets, CIDR, gateways, NAT, route tables)
 - ✅ EC2 – Instâncias de computação (t2.micro, keypairs, scripts)
-- ✅ S3 – Armazenamento de objetos (buckets, lifecycle, versionamento)
+- 🔄 S3 – Armazenamento de objetos (buckets, lifecycle, versionamento)
 - ✅ CloudWatch – Logs, métricas e alarmes
-- ✅ Route53 – DNS, zonas públicas/privadas, health checks
+- 🔄 Route53 – DNS, zonas públicas/privadas, health checks
 - 🔄 ElastiCache – Redis/Memcached
 - 🔄 SES – Envio de e-mails (verificação, DKIM, reputação)
 
