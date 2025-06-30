@@ -92,3 +92,53 @@ resource "aws_security_group" "app_sg" {
     Project = "AWSRoadmap"
   }
 }
+# 8. Criação da Instância EC2 para o seu App
+resource "aws_instance" "app_instance" {
+  ami           = "ami-053b0d534c0e66e13" # AMI do Ubuntu Server 22.04 LTS (HVM) - us-east-1 (N. Virginia)
+                                         # Importante: Verifique a AMI correta para sua região!
+                                         # Para sa-east-1 (São Paulo), uma AMI comum seria "ami-0a06640c4ad096464"
+  instance_type = "t2.micro"             # Tipo de instância do Free Tier
+
+  subnet_id = aws_subnet.public.id     # Associa à subnet pública que criamos
+  vpc_security_group_ids = [aws_security_group.app_sg.id] # Associa ao Security Group do seu app
+
+  # Associa a IAM Role criada à instância EC2
+  # Isso permite que a instância use as permissões definidas na Role (acesso ao S3, DynamoDB, etc.)
+  iam_instance_profile = aws_iam_instance_profile.app_profile.name
+
+  # Chave SSH para acesso à instância
+  # Você precisará ter uma Key Pair já criada na AWS na sua região!
+  # Substitua "amon-key-pair" pelo nome da sua Key Pair existente.
+  key_name = "amon-project-terraform"
+
+  # User Data Script: Executado na primeira inicialização da instância
+  # Ideal para instalar dependências e configurar seu ambiente automaticamente
+  user_data = <<-EOF
+              #!/bin/bash
+              sudo apt-get update -y
+              sudo apt-get install -y python3 python3-pip git
+              pip3 install boto3 requests flask # ou outras libs que seu app usar
+              # Git clone do seu repositório (substitua pelo seu URL)
+              git clone https://github.com/Amonvix/AWSRoadmap.git /home/ubuntu/AWSRoadmap
+              # Navegar para a pasta do seu app (assumindo que o app.py está em src/)
+              cd /home/ubuntu/AWSRoadmap/smartform
+              # Rodar seu app (exemplo: se for um script simples)
+              python3 main.py & # Rodar em background
+              EOF
+
+  tags = {
+    Name = "Amon-App-Instance"
+    Project = "AWSRoadmap"
+  }
+}
+
+# Referenciar a IAM Role existente
+data "aws_iam_role" "app_role_existing" {
+  name = "Amon-App-Role" # O nome EXATO da Role que você criou manualmente
+}
+
+# Cria um IAM Instance Profile para anexar a Role à EC2
+resource "aws_iam_instance_profile" "app_profile" {
+  name = "Amon-App-EC2-Profile"
+  role = "Amon-App-Role" # Use o nome da Role que você criou
+}
